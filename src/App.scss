@@ -1,0 +1,30 @@
+div{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+.appheading{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row ;
+    
+    button{
+        background-color: rgb(51, 150, 232);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 6px;
+        font-size: 16px ;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 1px solid black;
+
+    }
+}
