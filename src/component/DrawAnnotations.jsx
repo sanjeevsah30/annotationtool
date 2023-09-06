@@ -12,7 +12,7 @@ const DrawAnnotations = () => {
   });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  console.log(annotations);
+
 
   const handleNextImage = () => {
     if (currentImageIndex < imageDimensions.imagesLength - 1) {
@@ -31,10 +31,8 @@ const DrawAnnotations = () => {
   };
 
   const handleReset = () => {
-   
-      annotationsToDraw = [];
-      setAnnotations([]);
-   
+    annotationsToDraw = [];
+    setAnnotations([]);
   };
 
   const handleMouseDown = (event) => {
@@ -96,9 +94,9 @@ const DrawAnnotations = () => {
     document.body.removeChild(a);
     annotationsToDraw = [];
     setAnnotations([]);
+    alert("JSON File downloaded");
   };
 
-  console.log("dimension", annotationsToDraw);
   return (
     <>
       <Stage
@@ -113,7 +111,7 @@ const DrawAnnotations = () => {
             setImageDimensions={setImageDimensions}
             currentImageIndex={currentImageIndex}
           />
-          {annotationsToDraw.map((value) => {
+          {annotationsToDraw.map((value,idx) => {
             return (
               <Rect
                 x={value.x}
@@ -122,6 +120,7 @@ const DrawAnnotations = () => {
                 height={value.height}
                 fill='transparent'
                 stroke='black'
+                key={idx}
               />
             );
           })}
@@ -130,9 +129,10 @@ const DrawAnnotations = () => {
       <div className='buttons '>
         <button onClick={() => handlePrevImage()}>Previous</button>
         <button onClick={() => handleNextImage()}> Next</button>
-        <button onClick={() => handleExportAnnotations()}>Save & Download</button>
+        <button onClick={() => handleExportAnnotations()}>
+          Save & Download
+        </button>
         <button onClick={() => handleReset()}>Reset Annotations</button>
-
       </div>
     </>
   );

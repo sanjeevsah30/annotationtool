@@ -15,7 +15,6 @@ const images = [
 const ImageCatalog = ({ setImageDimensions, currentImageIndex }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  console.log("currentImageIndex", currentImageIndex);
   const [image] = useImage(images[currentImageIndex].src);
   useEffect(() => {
     if (image) {
